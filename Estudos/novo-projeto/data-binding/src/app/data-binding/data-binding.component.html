@@ -1,0 +1,126 @@
+
+<section class="property-binding">
+    <article>
+        <h3>Interpolation / Interpolação</h3>
+        <p>String renderizada com Interpolação {{ url }}</p>
+        <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
+        <p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor() }}</p>
+        <p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }}</p>
+    </article>
+
+    <article>
+        <h3>property-binding</h3>
+        <img [src]="urlImagem">
+    </article>
+
+    <div>
+        Selecione uma classe
+        <select #class (change)="0">
+            <option value="alert-success">Sucesso</option>
+            <option value="alert-primary">Primario</option>
+            <option value="alert-secondary">Segundario</option>
+            <option value="alert-warning">Aviso</option>
+            <option value="alert-dark">Escuro</option>
+            <option value="alert-light">Claro</option>
+            <option value="alert-info">Informaçôes</option>
+            <option value="alert-danger">Perigo</option>
+        </select>
+        <br><br>
+
+        <div class="alert {{ class.value }}" role="alert">
+            Texto colorido conforme valor do combobox.
+        </div>
+
+          <div class="alert" role="alert"
+          [class.alert-success]="class.value == 'alert-success'">Sucesso
+          </div>
+          <div class="alert" role="alert"
+          [class.alert-primary]="class.value == 'alert-primary'">Primario
+          </div>
+          <div class="alert" role="alert"
+          [class.alert-secondary]="class.value == 'alert-secondary'">Segundario
+          </div>
+          <div class="alert" role="alert"
+          [class.alert-warning]="class.value == 'alert-warning'">Aviso
+          </div>
+          <div class="alert" role="alert"
+          [class.alert-dark]="class.value == 'alert-dark'">Escuro
+          </div>
+          <div class="alert" role="alert"
+          [class.alert-light]="class.value == 'alert-light'">Claro
+          </div>
+          <div class="alert" role="alert"
+          [class.alert-info]="class.value == 'alert-info'">Informaçôes
+          </div>
+          
+          <div class="alert" role="alert"
+          [class.alert-danger]="class.value == 'alert-danger'">Perigo
+          </div>
+          <div class="alert alert-danger" role="alert"
+          [style.display]="class.value == 'alert-danger' ? 'block' : 'none'">Esse texto somente aparecerá em caso de erro
+          </div>
+
+    </div>
+</section>
+<section>
+    <article>
+        <h3>Event binding</h3>
+        <div>
+             <button (click)="botaoClicado()"
+             class="btn btn-primary">Taca o dedo!</button>
+             <br>    <br>
+             <input type="text"
+             (keyup)="onKeyUp($event)"
+             (keyup.enter)= "salvarValor(campoInput.value)"
+             (blur)= "salvarValor(campoInput.value)"
+             #campoInput/>
+             <br><br>
+             <p>Valor Atual: {{ valorAtual }}</p>
+             <p>Valor Salvo: {{ valorSalvo }}</p> 
+             <br><br>
+             <span (mouseover) ="onMouseOverOut()"
+             (mouseout)="onMouseOverOut()"
+             [class.highlight]="isMouseOver">
+                 Passe o mouse aqui!</span>
+             <br><br><br><br>
+        </div>
+    </article>
+</section>
+
+<section>
+    <article>
+        <h3>Two-Way data binding</h3>
+        <div>
+             
+        <input type="text"
+            [value]="nome"
+            (keyup)="salvarNome($event)"
+            #campoInput/>
+        <p>Você digitou: {{ nome }}</p>
+    </div>
+
+    <div>
+        <h3>Pão</h3>
+        <h3>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos!</h3>
+
+        <input type="text" [(ngModel)]="this.pessoa.nome"/>
+        <input type="text" [(ngModel)]="pessoa.idade"/>
+        <br>
+        <br>
+        <br>
+    </div>
+    </article>
+</section>
+
+<section class="input-output-properties">
+    <article>
+        <h3>Input/Output Properties</h3>
+
+        <app-curso [nomeCurso]="nomeDoCurso"></app-curso>
+
+        <contador [valorr]="valorInicial"
+        (mudouValor)="onMudouValor($event)"
+        ></contador>
+
+    </article>
+</section>

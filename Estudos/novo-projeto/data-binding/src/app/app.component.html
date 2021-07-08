@@ -1,0 +1,6 @@
+<app-data-binding #minhaVariavel></app-data-binding>
+<app-ciclo [valorInicial]="valor" *ngIf="!deletarCiclo"></app-ciclo>
+
+
+<button class="arroz btn-dark" (click)="mudarValor()" >Mudar Valor</button><br>
+<button class="arroz btn-dark" (click)="destruirCiclo()" >Destruir o Baguí</button>

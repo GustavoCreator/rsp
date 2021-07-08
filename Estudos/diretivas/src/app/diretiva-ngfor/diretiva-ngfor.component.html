@@ -1,0 +1,8 @@
+<p>diretiva-ngfor works!</p>
+<ul>
+    <li *ngFor= "let curso of cursos, let i = index">
+        <div *ngIf="i%2 !== 0">{{i}} Impar</div>
+        <div *ngIf="i%2 === 0" >{{i}} Par</div>
+        {{ i + 1 }} - {{ curso }}
+    </li>
+</ul>

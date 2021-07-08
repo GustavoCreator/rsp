@@ -1,0 +1,14 @@
+<p appFundoAmarelo>Texxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxto com fundo amarelo</p>
+<p appHighlightMouse>Texto com HightLight quando passa o mouse.</p>
+<h1 appHighlightMouse>Texto com HightLight quando passa o mouse 2.</h1>
+
+<h1 appHighlight [defaultColor]="'black'" [highlightColor]="'blue'">Texto com HightLight com cores customizadas.</h1>
+
+<div *ngIf= "mostrarCursos">
+    Lista de cursos aqui!
+</div>
+<div *ngElse= "mostrarCursos">
+    Não existem cursos para exibir!
+</div>
+<br>
+<button (click)= "onMostrarCursos()">Mostrar ou Esconder cursos!</button>
